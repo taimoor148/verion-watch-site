@@ -1,0 +1,23 @@
+{
+  "name": "verion",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "VÉRION — TIME, REFINED. Single-file luxury watch website (3D hero + full narrative).",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/copy-standalone.mjs",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.14",
+    "three": "0.169.0"
+  },
+  "devDependencies": {
+    "pngjs": "^7.0.0",
+    "puppeteer-core": "^25.8.0",
+    "vite": "^5.4.8",
+    "vite-plugin-singlefile": "^2.3.3"
+  }
+}

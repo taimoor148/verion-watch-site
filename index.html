@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>VÉRION — Time, Refined.</title>
+  <meta name="description" content="VÉRION creates precision-engineered mechanical timepieces defined by craftsmanship, restraint and timeless design.">
+  <meta property="og:site_name" content="VÉRION">
+  <meta property="og:title" content="VÉRION — Time, Refined.">
+  <meta property="og:description" content="Precision-engineered mechanical timepieces defined by craftsmanship, restraint and timeless design. Series 001 — limited to 250 pieces.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#050506">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050506'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia, serif' font-size='38' fill='%23c8b287'%3EV%3C/text%3E%3Crect x='14' y='50' width='36' height='1' fill='%23c8b287' opacity='0.55'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --c-void: #050506; --c-ivory: #ede8dd; --c-champagne: #c8b287; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--c-void); }
+    body {
+      background: var(--c-void);
+      color: var(--c-ivory);
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    .loader {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--c-void);
+    }
+    .loader__center { text-align: center; padding: 0 24px; }
+    .loader__wordmark {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(34px, 5vw, 56px);
+      letter-spacing: 0.42em;
+      text-indent: 0.42em;
+      color: var(--c-ivory);
+    }
+    .loader__tagline {
+      margin-top: 20px;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.52em;
+      text-indent: 0.52em;
+      color: rgba(237, 232, 221, 0.42);
+    }
+    .loader__bar {
+      width: min(240px, 58vw);
+      height: 1px;
+      margin: 46px auto 0;
+      background: rgba(237, 232, 221, 0.12);
+      overflow: hidden;
+    }
+    .loader__progress {
+      display: block;
+      height: 100%;
+      background: var(--c-champagne);
+      transform-origin: left center;
+      transform: scaleX(0);
+    }
+  </style>
+  <noscript><style>#loader { display: none; }</style></noscript>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="scroll-progress" aria-hidden="true"><i data-progress-bar></i></div>
+
+  <div id="loader" class="loader" role="status" aria-live="polite" aria-label="VÉRION is loading">
+    <div class="loader__center">
+      <p class="loader__eyebrow">MANUFACTURE HAUTE HORLOGERIE</p>
+      <p class="loader__wordmark">VÉRION</p>
+      <p class="loader__tagline">TIME, REFINED.</p>
+      <div class="loader__bar"><span class="loader__progress"></span></div>
+      <p class="loader__meta"><span data-loader-status>WINDING THE CALIBRE</span></p>
+    </div>
+    <div class="loader__corner loader__corner--left"><span>N°01 — GENÈVE</span></div>
+    <div class="loader__corner loader__corner--right"><span>MMXXVI</span></div>
+  </div>
+
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"><span class="cursor__label"></span></div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <div class="stage-layer" data-stage aria-hidden="true"></div>
+
+  <header class="nav" data-nav>
+    <div class="nav__inner">
+      <a class="nav__brand" href="#top" data-magnetic aria-label="VÉRION — back to top">
+        <span class="mask"><span class="mask__inner">VÉRION</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <ul>
+          <li><a class="nav__link" href="#collection"><span class="mask"><span class="mask__inner">COLLECTION</span></span></a></li>
+          <li><a class="nav__link" href="#craft"><span class="mask"><span class="mask__inner">CRAFT</span></span></a></li>
+          <li><a class="nav__link" href="#movement"><span class="mask"><span class="mask__inner">MOVEMENT</span></span></a></li>
+          <li><a class="nav__link" href="#story"><span class="mask"><span class="mask__inner">JOURNAL</span></span></a></li>
+        </ul>
+      </nav>
+      <div class="nav__actions">
+        <a class="nav__link nav__discover" href="#access"><span class="mask"><span class="mask__inner">PRIVATE ACCESS</span></span></a>
+        <button class="nav__menu-btn" type="button" data-menu-open aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+          <span class="mask"><span class="mask__inner">MENU</span></span>
+          <span class="nav__menu-icon" aria-hidden="true"><i></i><i></i></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="menu" class="menu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+    <div class="menu__inner">
+      <div class="menu__head">
+        <span class="menu__brand">VÉRION</span>
+        <button class="menu__close" type="button" data-menu-close>CLOSE</button>
+      </div>
+      <nav class="menu__nav" aria-label="Menu">
+        <ul class="menu__list">
+          <li class="menu__item"><a href="#collection"><sup>01</sup><span>COLLECTION</span></a></li>
+          <li class="menu__item"><a href="#craft"><sup>02</sup><span>CRAFT</span></a></li>
+          <li class="menu__item"><a href="#movement"><sup>03</sup><span>MOVEMENT</span></a></li>
+          <li class="menu__item"><a href="#story"><sup>04</sup><span>JOURNAL</span></a></li>
+          <li class="menu__item"><a href="#exclusivity"><sup>05</sup><span>EXCLUSIVITY</span></a></li>
+          <li class="menu__item"><a href="#access"><sup>06</sup><span>PRIVATE ACCESS</span></a></li>
+        </ul>
+      </nav>
+      <div class="menu__foot">
+        <span>TIME, REFINED.</span>
+        <span>GENÈVE — MMXXVI</span>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="hero" id="top" data-hero>
+      <div class="hero__content">
+        <p class="hero__eyebrow" data-reveal>
+          <span class="mask"><span class="mask__inner">THE NEW STANDARD OF TIME</span></span>
+        </p>
+        <h1 class="hero__title">
+          <span class="line"><span class="line__inner">TIME,</span></span>
+          <span class="line"><span class="line__inner">REFINED<i>.</i></span></span>
+        </h1>
+        <p class="hero__copy" data-reveal>Precision engineered for those who measure life in&nbsp;moments.</p>
+        <div class="hero__ctas" data-reveal>
+          <a class="cta cta--primary" href="#craft" data-cursor-label="EXPLORE" data-magnetic>
+            <span class="cta__text">DISCOVER VÉRION</span>
+            <svg class="cta__arrow" width="26" height="8" viewBox="0 0 26 8" fill="none" aria-hidden="true">
+              <path d="M0 4h24M21 1l3 3-3 3" stroke="currentColor" stroke-width="1"></path>
+            </svg>
+          </a>
+          <button class="cta cta--ghost" type="button" data-explore-watch>
+            <span class="cta__text">EXPLORE THE WATCH</span>
+          </button>
+        </div>
+      </div>
+
+      <aside class="hero__aside" data-reveal aria-label="Calibre specifications">
+        CALIBRE V-01 · MANUFACTURE MOVEMENT<br>
+        72-HOUR POWER RESERVE · 28,800 VPH
+      </aside>
+
+      <div class="hero__scrollcue" data-reveal aria-hidden="true">
+        <span class="hero__scrollcue-text">SCROLL TO EXPLORE</span>
+        <span class="hero__scrollcue-line"></span>
+      </div>
+    </section>
+
+    <section class="manifesto" id="philosophy">
+      <div class="section-label" data-section-head>
+        <span class="section-label__index">01</span>
+        <span class="section-label__rule" aria-hidden="true"></span>
+        <span class="section-label__name">PHILOSOPHY</span>
+      </div>
+      <h2 class="manifesto__statement" data-manifesto-main>
+        A WATCH IS NOT MADE TO FOLLOW TIME.
+      </h2>
+      <p class="manifesto__counter" data-manifesto-counter>
+        IT IS MADE TO DEFINE IT<i>.</i>
+      </p>
+    </section>
+
+    <section class="showcase" id="watch">
+      <div class="showcase__stage">
+        <header class="showcase__head" data-showcase-head>
+          <div class="section-label">
+            <span class="section-label__index">02</span>
+            <span class="section-label__rule" aria-hidden="true"></span>
+            <span class="section-label__name">THE WATCH</span>
+          </div>
+          <h2 class="showcase__title">VÉRION V1</h2>
+          <p class="showcase__sub">THE ARCHITECT OF TIME</p>
+        </header>
+
+        <dl class="annotations" data-annotations aria-label="Specifications">
+          <div class="annotations__item">
+            <dt>CASE</dt>
+            <dd>GRADE 5 TITANIUM</dd>
+          </div>
+          <div class="annotations__item">
+            <dt>CRYSTAL</dt>
+            <dd>SAPPHIRE</dd>
+          </div>
+          <div class="annotations__item">
+            <dt>MOVEMENT</dt>
+            <dd>AUTOMATIC</dd>
+          </div>
+          <div class="annotations__item">
+            <dt>POWER</dt>
+            <dd>72 HOURS</dd>
+          </div>
+        </dl>
+
+        <div class="hotspots" data-hotspots></div>
+
+        <div class="hotspot-card" data-hotspot-card>
+          <p class="hotspot-card__index"></p>
+          <h3 class="hotspot-card__title"></h3>
+          <p class="hotspot-card__text"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="craft" id="craft">
+      <header class="craft__head" data-section-head>
+        <div class="section-label">
+          <span class="section-label__index">03</span>
+          <span class="section-label__rule" aria-hidden="true"></span>
+          <span class="section-label__name">THE CRAFT</span>
+        </div>
+        <h2 class="craft__title">BUILT BY HAND<i>.</i></h2>
+        <p class="craft__copy">Every surface is finished with the patience of a craft measured in&nbsp;generations.</p>
+      </header>
+
+      <div class="craft__grid">
+        <figure class="craft__fig craft__fig--a" data-craft-reveal>
+          <div class="media-frame" data-frame>
+            <img data-media="craft-machining" alt="Machining a titanium watch case" loading="lazy" decoding="async">
+          </div>
+          <figcaption>MACHINING — 01</figcaption>
+        </figure>
+        <figure class="craft__fig craft__fig--b" data-craft-reveal>
+          <div class="media-frame" data-frame>
+            <img data-media="craft-polishing" alt="Hand polishing a watch surface" loading="lazy" decoding="async">
+          </div>
+          <figcaption>POLISHING — 02</figcaption>
+        </figure>
+        <figure class="craft__fig craft__fig--c" data-craft-reveal>
+          <div class="media-frame" data-frame>
+            <img data-media="craft-engraving" alt="Engraving fine details" loading="lazy" decoding="async">
+          </div>
+          <figcaption>ENGRAVING — 03</figcaption>
+        </figure>
+        <figure class="craft__fig craft__fig--d" data-craft-reveal>
+          <div class="media-frame" data-frame>
+            <img data-media="craft-dial" alt="Finishing a watch dial by hand" loading="lazy" decoding="async">
+          </div>
+          <figcaption>DIAL FINISHING — 04</figcaption>
+        </figure>
+        <figure class="craft__fig craft__fig--e" data-craft-reveal>
+          <div class="media-frame" data-frame>
+            <img data-media="craft-assembly" alt="Assembling a movement with tweezers" loading="lazy" decoding="async">
+          </div>
+          <figcaption>ASSEMBLY — 05</figcaption>
+        </figure>
+      </div>
+
+      <div class="process" data-process>
+        <div class="process__pin">
+          <p class="process__eyebrow">FROM RAW METAL TO LIVING MACHINE</p>
+          <div class="process__track" data-process-track>
+            <div class="process__step">
+              <span class="process__num">01</span>
+              <h3>MACHINED</h3>
+              <p>Case and components carved from Grade 5 titanium to a tolerance of two microns.</p>
+            </div>
+            <div class="process__step">
+              <span class="process__num">02</span>
+              <h3>POLISHED</h3>
+              <p>Surfaces brought to mirror finish by hand, one pass at a time.</p>
+            </div>
+            <div class="process__step">
+              <span class="process__num">03</span>
+              <h3>FINISHED</h3>
+              <p>Côtes de Genève, perlage and chamfers applied where only connoisseurs will look.</p>
+            </div>
+            <div class="process__step">
+              <span class="process__num">04</span>
+              <h3>ASSEMBLED</h3>
+              <p>168 components united by a single pair of hands, never a production line.</p>
+            </div>
+            <div class="process__step">
+              <span class="process__num">05</span>
+              <h3>TESTED</h3>
+              <p>Sixteen days of observation before the piece is judged worthy of its number.</p>
+            </div>
+          </div>
+          <div class="process__progress" aria-hidden="true"><i data-process-bar></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="movement" id="movement">
+      <div class="movement__stage">
+        <header class="movement__head" data-movement-head>
+          <div class="section-label">
+            <span class="section-label__index">04</span>
+            <span class="section-label__rule" aria-hidden="true"></span>
+            <span class="section-label__name">THE MOVEMENT</span>
+          </div>
+          <h2 class="movement__title">THE HEART WITHIN<i>.</i></h2>
+          <p class="movement__copy">Precision is invisible until you understand what moves beneath the&nbsp;surface.</p>
+        </header>
+
+        <dl class="specs" data-specs aria-label="Movement specifications">
+          <div class="specs__item" data-spec>
+            <dt class="specs__value"><span data-count="28800" data-format="thousands">28,800</span></dt>
+            <dd class="specs__label">VIBRATIONS / HOUR</dd>
+          </div>
+          <div class="specs__item" data-spec>
+            <dt class="specs__value"><span data-count="72">72</span>H</dt>
+            <dd class="specs__label">POWER RESERVE</dd>
+          </div>
+          <div class="specs__item" data-spec>
+            <dt class="specs__value"><span data-count="168">168</span></dt>
+            <dd class="specs__label">COMPONENTS</dd>
+          </div>
+          <div class="specs__item" data-spec>
+            <dt class="specs__value"><span data-count="1" data-pad="2">01</span></dt>
+            <dd class="specs__label">AUTOMATIC CALIBRE</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="detail" id="detail">
+      <header class="detail__head" data-section-head>
+        <div class="section-label">
+          <span class="section-label__index">05</span>
+          <span class="section-label__rule" aria-hidden="true"></span>
+          <span class="section-label__name">DETAIL</span>
+        </div>
+        <h2 class="detail__title">DETAIL IS THE DIFFERENCE<i>.</i></h2>
+      </header>
+
+      <div class="detail__stack" data-detail-stack>
+        <figure class="detail__panel">
+          <div class="media-frame" data-frame>
+            <img data-media="detail-case" alt="Brushed titanium case macro" loading="lazy" decoding="async">
+          </div>
+          <figcaption class="detail__label">
+            <span class="detail__index">CASE / 01</span>
+            <span class="detail__name">BRUSHED TITANIUM</span>
+          </figcaption>
+        </figure>
+        <figure class="detail__panel">
+          <div class="media-frame" data-frame>
+            <img data-media="detail-dial" alt="Hand-finished dial macro" loading="lazy" decoding="async">
+          </div>
+          <figcaption class="detail__label">
+            <span class="detail__index">DIAL / 02</span>
+            <span class="detail__name">HAND-FINISHED</span>
+          </figcaption>
+        </figure>
+        <figure class="detail__panel">
+          <div class="media-frame" data-frame>
+            <img data-media="detail-crown" alt="Precision cut crown macro" loading="lazy" decoding="async">
+          </div>
+          <figcaption class="detail__label">
+            <span class="detail__index">CROWN / 03</span>
+            <span class="detail__name">PRECISION CUT</span>
+          </figcaption>
+        </figure>
+        <figure class="detail__panel">
+          <div class="media-frame" data-frame>
+            <img data-media="detail-engraving" alt="Engraved case back macro" loading="lazy" decoding="async">
+          </div>
+          <figcaption class="detail__label">
+            <span class="detail__index">CASEBACK / 04</span>
+            <span class="detail__name">INDIVIDUALLY NUMBERED</span>
+          </figcaption>
+        </figure>
+        <figure class="detail__panel">
+          <div class="media-frame" data-frame>
+            <img data-media="detail-bracelet" alt="Bracelet links macro" loading="lazy" decoding="async">
+          </div>
+          <figcaption class="detail__label">
+            <span class="detail__index">BRACELET / 05</span>
+            <span class="detail__name">BUTTERFLY CLASP</span>
+          </figcaption>
+        </figure>
+        <figure class="detail__panel">
+          <div class="media-frame" data-frame>
+            <img data-media="detail-movement" alt="Automatic movement macro" loading="lazy" decoding="async">
+          </div>
+          <figcaption class="detail__label">
+            <span class="detail__index">MOVEMENT / 06</span>
+            <span class="detail__name">CALIBRE V-01</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="collection" id="collection">
+      <header class="collection__head" data-section-head>
+        <div class="section-label">
+          <span class="section-label__index">06</span>
+          <span class="section-label__rule" aria-hidden="true"></span>
+          <span class="section-label__name">THE COLLECTION</span>
+        </div>
+        <h2 class="collection__title">THE VÉRION SERIES</h2>
+      </header>
+
+      <article class="product product--featured" data-product-reveal>
+        <div class="product__media product__media--featured" data-frame>
+          <img data-media="watch-obsidian" alt="VÉRION V1 Obsidian" loading="lazy" decoding="async">
+        </div>
+        <div class="product__info">
+          <p class="product__ref">SERIES 001 — N°0001/0250</p>
+          <h3 class="product__name">V1 / OBSIDIAN</h3>
+          <p class="product__desc">Black dial. Dark metal. Quiet presence.</p>
+          <p class="product__price">$8,900</p>
+          <button class="cta cta--primary product__explore" type="button" data-explore-product="obsidian" data-cursor-label="EXPLORE">
+            <span class="cta__text">EXPLORE</span>
+            <svg class="cta__arrow" width="26" height="8" viewBox="0 0 26 8" fill="none" aria-hidden="true">
+              <path d="M0 4h24M21 1l3 3-3 3" stroke="currentColor" stroke-width="1"></path>
+            </svg>
+          </button>
+        </div>
+      </article>
+
+      <div class="collection__secondary">
+        <article class="product" data-product-reveal>
+          <div class="product__media" data-frame>
+            <img data-media="watch-titanium" alt="VÉRION V1 Titanium" loading="lazy" decoding="async">
+          </div>
+          <div class="product__info">
+            <p class="product__ref">SERIES 001</p>
+            <h3 class="product__name">V1 / TITANIUM</h3>
+            <p class="product__desc">Engineered lightness. Architectural precision.</p>
+            <p class="product__price">$9,800</p>
+            <button class="cta cta--ghost product__explore" type="button" data-explore-product="titanium">
+              <span class="cta__text">EXPLORE</span>
+            </button>
+          </div>
+        </article>
+        <article class="product" data-product-reveal>
+          <div class="product__media" data-frame>
+            <img data-media="watch-champagne" alt="VÉRION V1 Champagne" loading="lazy" decoding="async">
+          </div>
+          <div class="product__info">
+            <p class="product__ref">SERIES 001</p>
+            <h3 class="product__name">V1 / CHAMPAGNE</h3>
+            <p class="product__desc">Warm metallic tones. Refined character.</p>
+            <p class="product__price">$11,500</p>
+            <button class="cta cta--ghost product__explore" type="button" data-explore-product="champagne">
+              <span class="cta__text">EXPLORE</span>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="exclusivity" id="exclusivity">
+      <div class="exclusivity__inner">
+        <div class="section-label section-label--center" data-section-head>
+          <span class="section-label__index">07</span>
+          <span class="section-label__rule" aria-hidden="true"></span>
+          <span class="section-label__name">EXCLUSIVITY</span>
+        </div>
+        <p class="exclusivity__kicker" data-exclusive-kicker>LIMITED SERIES</p>
+        <p class="exclusivity__number" aria-label="250"><span data-exclusive-number>250</span></p>
+        <h2 class="exclusivity__statement" data-exclusive-statement>ONLY 250 WILL EXIST.</h2>
+        <p class="exclusivity__copy" data-exclusive-copy>
+          Each VÉRION Series 001 timepiece is individually numbered<br>
+          and produced in strictly limited quantities.
+        </p>
+        <div class="exclusivity__plate" data-exclusive-plate aria-label="Series plaque">
+          <span class="exclusivity__plate-top">SERIES 001</span>
+          <span class="exclusivity__plate-no">NO. 0001 — 0250</span>
+        </div>
+        <button class="cta cta--primary" type="button" data-open-access data-cursor-label="ACCESS" data-exclusive-cta>
+          <span class="cta__text">REQUEST PRIVATE ACCESS</span>
+          <svg class="cta__arrow" width="26" height="8" viewBox="0 0 26 8" fill="none" aria-hidden="true">
+            <path d="M0 4h24M21 1l3 3-3 3" stroke="currentColor" stroke-width="1"></path>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <section class="teaser" id="next" aria-label="The story">
+      <span class="teaser__line" aria-hidden="true" data-teaser-line></span>
+      <div class="teaser__body" data-teaser-body>
+        <p class="section-label__index teaser__index">08</p>
+        <h2 class="teaser__title">THE STORY</h2>
+      </div>
+    </section>
+
+    <section class="story" id="story" aria-label="The VÉRION story">
+      <h2 class="story__title" data-story-title>TIME SHOULD LEAVE A MARK<i>.</i></h2>
+      <div class="story__verse">
+        <p class="story__verse-line" data-verse>Some objects are made to be used.</p>
+        <p class="story__verse-line story__verse-line--accent" data-verse>Others are made to be remembered<i>.</i></p>
+      </div>
+      <p class="story__philosophy" data-story-philosophy>
+        VÉRION exists at the intersection of engineering, craftsmanship and&nbsp;restraint.
+      </p>
+    </section>
+
+    <section class="cinema" id="cinema" aria-label="Cinematic approach">
+      <div class="cinema__stage">
+        <p class="cinema__whisper" data-cinema-whisper>TIME, SUSPENDED<i>.</i></p>
+      </div>
+    </section>
+
+    <section class="reveal" id="reveal" aria-label="Final reveal">
+      <div class="reveal__stage">
+        <header class="reveal__head">
+          <p class="reveal__label">VÉRION / SERIES 001</p>
+          <h2 class="reveal__title">
+            <span class="line"><span class="line__inner">THE WATCH</span></span>
+            <span class="line"><span class="line__inner">THAT DEFINES</span></span>
+            <span class="line"><span class="line__inner">THE MOMENT<i>.</i></span></span>
+          </h2>
+        </header>
+      </div>
+    </section>
+
+    <section class="summary" id="summary" aria-label="Product summary">
+      <header class="summary__head">
+        <div class="section-label">
+          <span class="section-label__index">09</span>
+          <span class="section-label__rule" aria-hidden="true"></span>
+          <span class="section-label__name">SPECIFICATION</span>
+        </div>
+        <h2 class="summary__title">VÉRION V1</h2>
+      </header>
+      <dl class="summary__list">
+        <div class="summary__row" data-summary-row>
+          <dt>AUTOMATIC CALIBRE</dt>
+          <dd class="summary__big">V-01</dd>
+        </div>
+        <div class="summary__row" data-summary-row>
+          <dt>POWER RESERVE</dt>
+          <dd class="summary__big"><span data-count-reserve>72</span>H</dd>
+        </div>
+        <div class="summary__row" data-summary-row>
+          <dt>CRYSTAL</dt>
+          <dd class="summary__big summary__big--text">SAPPHIRE</dd>
+        </div>
+        <div class="summary__row" data-summary-row>
+          <dt>CASE</dt>
+          <dd class="summary__big summary__big--text">GRADE 5 TITANIUM</dd>
+        </div>
+        <div class="summary__row" data-summary-row>
+          <dt>WATER RESISTANCE</dt>
+          <dd class="summary__big"><span data-count-atm>10</span><span class="summary__unit">ATM</span></dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="access" id="access" aria-label="Private access reservation">
+      <div class="access__inner">
+        <div class="section-label section-label--center">
+          <span class="section-label__index">10</span>
+          <span class="section-label__rule" aria-hidden="true"></span>
+          <span class="section-label__name">PRIVATE ACCESS</span>
+        </div>
+        <h2 class="access__title">RESERVE YOUR VÉRION<i>.</i></h2>
+        <p class="access__copy">Be among the first to experience Series&nbsp;001.</p>
+        <div class="access__ctas">
+          <button class="cta cta--primary" type="button" data-open-access data-cursor-label="ACCESS">
+            <span class="cta__text">REQUEST PRIVATE ACCESS</span>
+            <svg class="cta__arrow" width="26" height="8" viewBox="0 0 26 8" fill="none" aria-hidden="true">
+              <path d="M0 4h24M21 1l3 3-3 3" stroke="currentColor" stroke-width="1"></path>
+            </svg>
+          </button>
+          <a class="cta cta--ghost" href="#collection">
+            <span class="cta__text">EXPLORE THE COLLECTION</span>
+          </a>
+        </div>
+        <p class="access__note">SERIES 001 · NO. 0001 — 0250 · ALLOCATION IN ORDER OF REQUEST</p>
+      </div>
+    </section>
+
+    <section class="fincta" aria-label="Final statement">
+      <h2 class="fincta__line"><span class="line"><span class="line__inner">TIME IS LIMITED<i>.</i></span></span></h2>
+      <p class="fincta__brand">VÉRION</p>
+      <p class="fincta__tag">TIME, REFINED.</p>
+      <a class="cta cta--ghost fincta__explore" href="#collection">
+        <span class="cta__text">EXPLORE COLLECTION</span>
+        <svg class="cta__arrow" width="26" height="8" viewBox="0 0 26 8" fill="none" aria-hidden="true">
+          <path d="M0 4h24M21 1l3 3-3 3" stroke="currentColor" stroke-width="1"></path>
+        </svg>
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <p class="footer__wordmark" data-footer-mark>VÉRION</p>
+        <p class="footer__tagline">TIME, REFINED.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <a href="#collection">COLLECTION</a>
+        <a href="#craft">CRAFT</a>
+        <a href="#movement">MOVEMENT</a>
+        <a href="#story">JOURNAL</a>
+        <a href="#access">PRIVATE ACCESS</a>
+      </nav>
+      <div class="footer__social">
+        <a href="https://instagram.com" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://x.com" target="_blank" rel="noopener">X</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener">LINKEDIN</a>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <span>© 2026 VÉRION. ALL RIGHTS RESERVED.</span>
+      <span class="footer__legal-links">
+        <a href="#" data-soon>PRIVACY</a>
+        <a href="#" data-soon>TERMS</a>
+      </span>
+    </div>
+  </footer>
+
+  <div id="product-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__panel" role="document">
+      <button class="modal__close" type="button" data-modal-close aria-label="Close product details">CLOSE</button>
+      <div class="modal__media" data-frame aria-hidden="true">
+        <div data-modal-art></div>
+      </div>
+      <div class="modal__body">
+        <p class="product__ref" data-modal-ref></p>
+        <h3 class="modal__title" id="modal-title"></h3>
+        <p class="modal__tagline" data-modal-tagline></p>
+        <p class="modal__price" data-modal-price></p>
+        <p class="modal__desc" data-modal-desc></p>
+        <dl class="modal__specs" data-modal-specs></dl>
+        <p class="modal__note">Each piece is numbered within Series 001 and allocated by order of reservation.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="access-modal" class="modal modal--access" role="dialog" aria-modal="true" aria-labelledby="access-title" aria-hidden="true">
+    <div class="modal__backdrop" data-access-close></div>
+    <div class="modal__panel access-panel" role="document">
+      <button class="modal__close" type="button" data-access-close aria-label="Close private access form">CLOSE</button>
+      <form class="access-form" novalidate>
+        <p class="access-form__kicker">PRIVATE ACCESS</p>
+        <h3 class="access-form__title" id="access-title">REQUEST ACCESS</h3>
+        <p class="access-form__sub">Series 001 allocations are offered in order of request.</p>
+        <div class="field-grid">
+          <label class="field">
+            <span>FIRST NAME *</span>
+            <input type="text" name="firstName" autocomplete="given-name" required aria-describedby="err-firstName">
+            <em class="field__error" id="err-firstName">Please enter your first name.</em>
+          </label>
+          <label class="field">
+            <span>LAST NAME *</span>
+            <input type="text" name="lastName" autocomplete="family-name" required aria-describedby="err-lastName">
+            <em class="field__error" id="err-lastName">Please enter your last name.</em>
+          </label>
+          <label class="field">
+            <span>EMAIL *</span>
+            <input type="email" name="email" autocomplete="email" required aria-describedby="err-email">
+            <em class="field__error" id="err-email">Please enter a valid email address.</em>
+          </label>
+          <label class="field">
+            <span>PHONE</span>
+            <input type="tel" name="phone" autocomplete="tel">
+          </label>
+          <label class="field field--full">
+            <span>COUNTRY *</span>
+            <input type="text" name="country" autocomplete="country-name" required aria-describedby="err-country">
+            <em class="field__error" id="err-country">Please enter your country.</em>
+          </label>
+          <label class="field field--full">
+            <span>MESSAGE</span>
+            <textarea name="message" rows="4" placeholder="Optional"></textarea>
+          </label>
+        </div>
+        <button class="cta cta--primary access-form__submit" type="submit">
+          <span class="cta__text">REQUEST ACCESS</span>
+          <svg class="cta__arrow" width="26" height="8" viewBox="0 0 26 8" fill="none" aria-hidden="true">
+            <path d="M0 4h24M21 1l3 3-3 3" stroke="currentColor" stroke-width="1"></path>
+          </svg>
+        </button>
+        <p class="access-form__privacy">Your information is used solely to respond to your private access request.</p>
+      </form>
+      <div class="access-success" hidden data-success-view>
+        <h3 class="access-success__title">REQUEST RECEIVED<i>.</i></h3>
+        <p class="access-success__copy">Thank you. A VÉRION representative will be in contact shortly.</p>
+        <button class="cta cta--ghost" type="button" data-access-close>
+          <span class="cta__text">CLOSE</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
