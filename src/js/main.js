@@ -4,6 +4,7 @@ import '../styles/chrome.css'
 import '../styles/hero.css'
 import '../styles/sections.css'
 import '../styles/tempo.css'
+import '../styles/editorial.css'
 import { initTempo } from './sections/tempo.js'
 
 import gsap from 'gsap'
