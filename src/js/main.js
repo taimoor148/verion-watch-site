@@ -3,6 +3,8 @@ import '../styles/loader.css'
 import '../styles/chrome.css'
 import '../styles/hero.css'
 import '../styles/sections.css'
+import '../styles/tempo.css'
+import { initTempo } from './sections/tempo.js'
 
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -40,7 +42,7 @@ async function boot() {
 
   let lenis = null
   if (!caps.reduced) {
-    lenis = new Lenis({ duration: 1.25, smoothWheel: true })
+    lenis = new Lenis({ duration: 0.8, smoothWheel: !caps.coarse })
     lenis.on('scroll', ScrollTrigger.update)
     gsap.ticker.add(time => lenis.raf(time * 1000))
     gsap.ticker.lagSmoothing(0)
@@ -102,7 +104,7 @@ async function boot() {
   initLoader({
     caps,
     ready: experience.ready,
-    minTime: caps.reduced ? 200 : 1600,
+    minTime: caps.reduced ? 0 : 650,
     onComplete: () => {
       entrance.play()
       if (!caps.reduced) {
@@ -115,6 +117,7 @@ async function boot() {
 
   const ctx = { caps, lenis, experience }
 
+  initTempo(caps)
   initManifesto(caps)
   initShowcase(ctx)
   initCraft(caps)

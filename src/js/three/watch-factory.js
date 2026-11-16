@@ -6,6 +6,11 @@ export function createWatch({ tier, aniso }) {
   const geometries = []
   const materials = []
   const textures = []
+  const layers = []
+  const layer = (object, x, y, z) => {
+    layers.push({ object, origin: object.position.clone(), offset: new THREE.Vector3(x, y, z) })
+    return object
+  }
 
   const trackGeo = geo => { geometries.push(geo); return geo }
   const trackMat = mat => { materials.push(mat); return mat }
@@ -80,11 +85,13 @@ export function createWatch({ tier, aniso }) {
   ].map(p => new THREE.Vector2(p[0], p[1]))
   const bezel = new THREE.Mesh(trackGeo(new THREE.LatheGeometry(bezelProfile, seg)), polished)
   group.add(bezel)
+  layer(bezel, 0, 13, 0)
 
   const caseBack = new THREE.Mesh(trackGeo(new THREE.CircleGeometry(16.8, seg)), darkMetal)
   caseBack.rotation.x = Math.PI / 2
   caseBack.position.y = -4.3
   group.add(caseBack)
+  layer(caseBack, 0, -14, 0)
 
   const rehaut = new THREE.Mesh(
     trackGeo(new THREE.CylinderGeometry(16.9, 17.45, 1.15, seg, 1, true)),
@@ -98,11 +105,13 @@ export function createWatch({ tier, aniso }) {
   )
   rehaut.position.y = 3.45
   group.add(rehaut)
+  layer(rehaut, 0, 7, 0)
 
   const dial = new THREE.Mesh(trackGeo(new THREE.CircleGeometry(17.05, seg)), dialMat)
   dial.rotation.x = -Math.PI / 2
   dial.position.y = 3.02
   group.add(dial)
+  layer(dial, 0, 5, 0)
 
   const indexGeo = trackGeo(new THREE.BoxGeometry(0.85, 0.45, 2.6))
   for (let i = 0; i < 12; i++) {
@@ -114,6 +123,7 @@ export function createWatch({ tier, aniso }) {
       index.position.set(Math.sin(angle) * 14.2 + dx, 3.28, -Math.cos(angle) * 14.2)
       index.rotation.y = angle
       group.add(index)
+      layer(index, 0, 5, 0)
     }
   }
 
@@ -139,6 +149,7 @@ export function createWatch({ tier, aniso }) {
     pivot.add(mesh)
     pivot.rotation.y = -THREE.MathUtils.degToRad(angleDeg)
     group.add(pivot)
+    layer(pivot, 0, 20, 0)
     return pivot
   }
 
@@ -160,6 +171,7 @@ export function createWatch({ tier, aniso }) {
   secondPivot.add(needle, counterweight)
   secondPivot.rotation.y = -THREE.MathUtils.degToRad(210)
   group.add(secondPivot)
+  layer(secondPivot, 0, 23, 0)
 
   const cap = new THREE.Mesh(
     trackGeo(new THREE.CylinderGeometry(0.85, 0.85, 0.5, 32)),
@@ -167,6 +179,7 @@ export function createWatch({ tier, aniso }) {
   )
   cap.position.y = 3.66
   group.add(cap)
+  layer(cap, 0, 23, 0)
 
   const crystalTheta = Math.asin(18.3 / 139)
   const crystalGeo = trackGeo(new THREE.SphereGeometry(139, tier === 'high' ? 96 : 56, tier === 'high' ? 12 : 8, 0, Math.PI * 2, 0, crystalTheta))
@@ -192,6 +205,7 @@ export function createWatch({ tier, aniso }) {
   const crystalMesh = new THREE.Mesh(crystalGeo, crystal)
   crystalMesh.position.y = 3.35 - 139 * Math.cos(crystalTheta)
   group.add(crystalMesh)
+  layer(crystalMesh, 0, 31, 0)
 
   const crown = new THREE.Group()
   const crownBody = new THREE.Mesh(
@@ -215,6 +229,7 @@ export function createWatch({ tier, aniso }) {
   crown.add(crownBody, grooveA, grooveB, crownCap)
   crown.position.set(22.7, 1, 0)
   group.add(crown)
+  layer(crown, 12, 0, 0)
 
   const lugGeo = trackGeo(new THREE.BoxGeometry(2.9, 2.2, 4.6))
   const lugSpecs = [
@@ -247,6 +262,7 @@ export function createWatch({ tier, aniso }) {
       link.position.set(0, wristCy + wristR * Math.cos(phi), side * wristR * Math.sin(phi))
       link.rotation.x = side === 1 ? phi : Math.PI - phi
       group.add(link)
+      layer(link, 0, -5, side * 12)
     }
   }
 
@@ -256,5 +272,10 @@ export function createWatch({ tier, aniso }) {
     textures.forEach(tex => tex.dispose())
   }
 
-  return { group, secondPivot, dispose }
+  function setExplode(amount) {
+    const progress = THREE.MathUtils.clamp(amount, 0, 1)
+    layers.forEach(({ object, origin, offset }) => object.position.copy(origin).addScaledVector(offset, progress))
+  }
+
+  return { group, secondPivot, setExplode, dispose }
 }

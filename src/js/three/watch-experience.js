@@ -8,7 +8,7 @@ import { POSTER_SVG } from './poster.js'
 
 const WATCH_URL = `${import.meta.env.BASE_URL}models/verion-watch.glb`
 const MOVEMENT_URL = `${import.meta.env.BASE_URL}models/verion-movement.glb`
-const MODELS_POSSIBLE = typeof location !== 'undefined' && location.protocol !== 'file:'
+const MODELS_POSSIBLE = Object.keys(import.meta.glob('/public/models/*.glb')).length > 0 && location.protocol !== 'file:'
 
 function loadGLB(url, timeoutMs) {
   return new Promise(resolve => {
