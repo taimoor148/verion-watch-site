@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 export function initScrollScenes({ experience, caps }) {
   if (caps.reduced) return
 
+  gsap.to('.campaign-hero', {scale:1.2, yPercent:10, ease:'none', scrollTrigger:{trigger:'[data-hero]',start:'top top',end:'bottom top',scrub:.35}})
   const state = experience.scrollState
 
   ScrollTrigger.create({

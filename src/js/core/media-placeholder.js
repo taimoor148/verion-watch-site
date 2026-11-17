@@ -195,7 +195,8 @@ export function enhanceImage(img, fallbackKind) {
     return
   }
   img.addEventListener('error', () => swapToPlaceholder(img, kind), { once: true })
-  img.src = `${BASE}images/${kind}.webp`
+  const file = kind.startsWith('craft-') || kind === 'detail-movement' ? 'campaign-craft' : kind.startsWith('detail-') ? 'campaign-hero' : kind
+  img.src = `${BASE}images/${file}.webp`
 }
 
 function swapToPlaceholder(img, kind) {
